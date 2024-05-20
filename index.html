@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Lady and Snail Adventures</title>
+  </head>
+  <body>
+    <main>
+      <div id="game-intro">
+        <img src="./images/background2.png" alt="" class="background2-img" />
+        <br />
+        <button id="start-button">Start Game</button>
+        <p>Use the left and right arrow to control the character!</p>
+        <img src="./images/arrows.png" alt="" class="arrows-img" />
+      </div>
+
+      <div id="game-container">
+        <div>
+          <h2>Stats</h2>
+          <p>Score: <span id="Score">0</span></p>
+          <p>Lives: <span id="Lives">0</span></p>
+        </div>
+        <!-- #game-screen is initially hidden using CSS style display: none -->
+        <div id="game-screen"></div>
+      </div>
+
+      <!-- #game-end is initially hidden using CSS style display: none -->
+      <div id="game-end">
+        <img src="./images/gameover.png" alt="" class="game-over-screen" />
+        <h1>Game Over</h1>
+        <br />
+        <button id="restart-button">Restart</button>
+      </div>
+    </main>
+    <script type="text/javascript" src="js/obstacle-bad.js"></script>
+    <script type="text/javascript" src="js/obstacle-good.js"></script>
+    <script type="text/javascript" src="js/snail.js"></script>
+    <script type="text/javascript" src="js/ladybird.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
