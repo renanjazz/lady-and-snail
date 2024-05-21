@@ -7,12 +7,12 @@ class Game {
       this.gameScreen,
       50,
       50,
-      400,
-      250,
+      600,
+      550,
       "../images/ladyplayer.png"
     );
-    this.height = 600;
-    this.width = 500;
+    this.height = 800;
+    this.width = 700;
     this.obstacles = [new Obstacle(this.gameScreen)];
     this.score = 0;
     this.lives = 0;
@@ -21,8 +21,7 @@ class Game {
     this.gameLoopFrequency = 1000 / 60;
   }
 
-
-start() {
+  start() {
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
     this.startScreen.style.display = "none";
@@ -32,7 +31,6 @@ start() {
     }, this.gameLoopFrequency);
   }
   gameLoop() {
-    // console.log("inside the game loop");
     this.update();
     if (this.isGameOver) {
       clearInterval(this.gameIntervalId);
@@ -40,7 +38,6 @@ start() {
     }
   }
   update() {
-    // console.log("inside the update function");
     this.player.move();
 
     this.obstacles.forEach((oneObstacle, oneObstacleIndex) => {
@@ -62,7 +59,6 @@ start() {
       if (oneObstacle.top > 700) {
         this.obstacles.splice(oneObstacleIndex, 1);
         oneObstacle.element.remove();
-        //increase the score by 1
         this.score += 1;
         //always update the DOM to your new score
         const scoreElement = document.getElementById("score");

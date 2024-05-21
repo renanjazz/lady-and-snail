@@ -1,66 +1,80 @@
 body {
-    padding: 0;
-    text-align: center;
-  }
+  padding: 0;
+  text-align: center;
+}
+
+#game-intro {
+  padding: 20px 0px;
+}
+
+#game-screen {
+  display: none;
+  align-content: center;
+  padding: 20px 0px;
+  overflow: hidden;
+  position: relative;
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  animation: slide 30s linear infinite;
+}
+#game-container {
   
-  #game-intro {
-    padding: 20px 0px;
-  }
-  
-  #game-container {
     display: flex;
     width: 100vw;
     padding: 20px 0px;
     justify-content: center;
   }
-  
-  #game-screen {
-    display: none;
-    align-content: center;
-    padding: 20px 0px;
-    overflow: hidden;
-    position: relative;
-    background-image: url(../images/background.jpg);
-    background-size: cover;
-    animation: slide 5s linear infinite;
+
+@keyframes slide {
+  0% {
+    background-position: 0 -1000px;
   }
-  
-  @keyframes slide {
-    0% {
-      background-position: 0 -1000px;
-    }
-    95% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 0 50px;
-    }
+  95% {
+    background-position: 0 0;
   }
-  
-  #game-end {
-    display: none;
+  100% {
+    background-position: 0 50px;
   }
-  
-  .game-intro p {
-    font-size: 18px;
-    font-family: "Verdana";
-  }
-  
-  .logo-img {
-    width: 350px;
-  }
-  
-  .arrows-img {
-    width: 150px;
-  }
-  
-  body button {
-    font-size: 30px;
-    background-color: #870007;
-    color: #fff;
-    padding: 20px 40px;
-    border: 0;
-    box-shadow: 0;
-    border-radius: 5px;
-    margin-bottom: 20px;
+}
+
+#game-end {
+  display: none;
+}
+
+.game-intro p {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+
+.logo-img {
+  width: 350px;
+}
+
+.arrows-img {
+  width: 150px;
+}
+
+body button {
+  font-size: 50px;
+  background-color: #870007;
+  position: absolute;
+  top: 70%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 2; 
+  color: #fff; 
+  border: none; 
+  padding: 10px 20px;
+  cursor: pointer; 
+  animation: example 3s infinite;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+@keyframes example {
+    0% {background-color: #ff0000;}
+    50% {background-color: #600000;}
+    100% {background-color: #ff0000;}
   }
