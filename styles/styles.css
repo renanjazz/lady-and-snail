@@ -25,7 +25,7 @@ body {
     justify-content: center;
   }
 
-@keyframes slide {
+/* @keyframes slide {
   0% {
     background-position: 0 -1000px;
   }
@@ -35,7 +35,7 @@ body {
   100% {
     background-position: 0 50px;
   }
-}
+} */
 
 #game-end {
   display: none;
@@ -54,7 +54,7 @@ body {
   width: 150px;
 }
 
-body button {
+.button .start-button  {
   font-size: 50px;
   background-color: #870007;
   position: absolute;
@@ -72,6 +72,25 @@ body button {
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.button .begin-button  {
+    font-size: 50px;
+    background-color: #870007;
+    position: absolute;
+    top: 70%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 2; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px;
+    cursor: pointer; 
+    animation: example 3s infinite;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
 @keyframes example {
     0% {background-color: #ff0000;}

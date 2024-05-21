@@ -15,8 +15,6 @@ class Player {
       this.element.style.height = `${this.height}px`;
       this.element.style.width = `${this.width}px`;
       this.gameScreen.appendChild(this.element);
-      this.honkSound = new Audio("../honk.wav");
-      this.honkSound.volume = 0.1;
     }
     move() {
       this.left += this.directionX;

@@ -1,24 +1,33 @@
 class Game {
   constructor() {
     this.startScreen = document.getElementById("game-intro");
+    this.selectPlayer = document.getElementById("select-player");
     this.gameScreen = document.getElementById("game-screen");
     this.gameEndScreen = document.getElementById("game-end");
     this.player = new Player(
       this.gameScreen,
-      50,
-      50,
-      600,
-      550,
+      100,
+      100,
+      400,
+      250,
       "../images/ladyplayer.png"
     );
-    this.height = 800;
-    this.width = 700;
+    this.height = 600;
+    this.width = 500;
     this.obstacles = [new Obstacle(this.gameScreen)];
-    this.score = 0;
-    this.lives = 0;
+    this.points = 0;
+    this.health = 5;
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
+    this.speed = 4;
+  }
+
+  selectPlayer() {
+    this.startScreen.style.height = `${this.height}px`;
+    this.startScreen.style.width = `${this.width}px`;
+    this.startScreen.style.display = "none";
+    this.selectPlayer.style.display = "block";
   }
 
   start() {
@@ -40,7 +49,7 @@ class Game {
   update() {
     this.player.move();
 
-    this.obstacles.forEach((oneObstacle, oneObstacleIndex) => {
+    this.obstacles.forEach((oneObstacle, oneObstacleIndex) => { 
       oneObstacle.move();
 
       const thereWasACollision = this.player.didCollide(oneObstacle);
@@ -48,21 +57,21 @@ class Game {
         this.obstacles.splice(oneObstacleIndex, 1);
         oneObstacle.element.remove();
         this.obstacles.push(new Obstacle(this.gameScreen));
-        this.lives -= 1;
-        if (this.lives === 0) {
+        this.health -= 1;
+        if (this.health === 0) {
           this.isGameOver = true;
         }
-        const livesElement = document.getElementById("lives");
-        livesElement.innerText = this.lives;
+        const livesElement = document.getElementById("health");
+        livesElement.innerText = this.health;
       }
 
       if (oneObstacle.top > 700) {
         this.obstacles.splice(oneObstacleIndex, 1);
         oneObstacle.element.remove();
-        this.score += 1;
+        this.points += 1;
         //always update the DOM to your new score
-        const scoreElement = document.getElementById("score");
-        scoreElement.innerText = this.score;
+        const scoreElement = document.getElementById("points");
+        scoreElement.innerText = this.points;
         this.obstacles.push(new Obstacle(this.gameScreen));
       }
     });
