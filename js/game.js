@@ -4,6 +4,7 @@ class Game {
     this.selectPlayer = document.getElementById("select-player");
     this.gameScreen = document.getElementById("game-screen");
     this.gameEndScreen = document.getElementById("game-end");
+    this.gameContainer = document.getElementById("game-container");
     this.player = new Player(
       this.gameScreen,
       100,
@@ -20,12 +21,11 @@ class Game {
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
-    this.speed = 4;
   }
 
-  selectPlayer() {
-    this.startScreen.style.height = `${this.height}px`;
-    this.startScreen.style.width = `${this.width}px`;
+  selectPlayerScreen() {
+    this.selectPlayer.style.height = `${this.height}px`;
+    this.selectPlayer.style.width = `${this.width}px`;
     this.startScreen.style.display = "none";
     this.selectPlayer.style.display = "block";
   }
@@ -35,6 +35,8 @@ class Game {
     this.gameScreen.style.width = `${this.width}px`;
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
+    this.gameContainer.style.display = "block";
+    this.selectPlayer.style.display = "none";
     this.gameIntervalId = setInterval(() => {
       this.gameLoop();
     }, this.gameLoopFrequency);
@@ -49,7 +51,7 @@ class Game {
   update() {
     this.player.move();
 
-    this.obstacles.forEach((oneObstacle, oneObstacleIndex) => { 
+    this.obstacles.forEach((oneObstacle, oneObstacleIndex) => {
       oneObstacle.move();
 
       const thereWasACollision = this.player.didCollide(oneObstacle);

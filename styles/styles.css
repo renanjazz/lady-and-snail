@@ -18,14 +18,15 @@ body {
   animation: slide 30s linear infinite;
 }
 #game-container {
+  display: flex;
+  width: 100vw;
+  padding: 20px 0px;
+  justify-content: center;
+  display: none;
   
-    display: flex;
-    width: 100vw;
-    padding: 20px 0px;
-    justify-content: center;
-  }
+}
 
-/* @keyframes slide {
+@keyframes slide {
   0% {
     background-position: 0 -1000px;
   }
@@ -35,7 +36,7 @@ body {
   100% {
     background-position: 0 50px;
   }
-} */
+}
 
 #game-end {
   display: none;
@@ -52,20 +53,22 @@ body {
 
 .arrows-img {
   width: 150px;
+  position: absolute;
+  padding: 10px 20px;
 }
 
-.button .start-button  {
-  font-size: 50px;
+body button {
+  font-size: 150%;
   background-color: #870007;
   position: absolute;
-  top: 70%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  z-index: 2; 
-  color: #fff; 
-  border: none; 
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #fff;
+  border: none;
   padding: 10px 20px;
-  cursor: pointer; 
+  cursor: pointer;
   animation: example 3s infinite;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -73,27 +76,25 @@ body {
   margin-right: 5px;
 }
 
-.button .begin-button  {
-    font-size: 50px;
-    background-color: #870007;
-    position: absolute;
-    top: 70%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    z-index: 2; 
-    color: #fff; 
-    border: none; 
-    padding: 10px 20px;
-    cursor: pointer; 
-    animation: example 3s infinite;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
 @keyframes example {
-    0% {background-color: #ff0000;}
-    50% {background-color: #600000;}
-    100% {background-color: #ff0000;}
+  0% {
+    background-color: #ff0000;
   }
+  50% {
+    background-color: #600000;
+  }
+  100% {
+    background-color: #ff0000;
+  }
+}
+
+#select-player {
+  background-image: url("../images/background2.png");
+  background-size: cover;
+  display: none;
+  align-content: center;
+  padding: 20px 0px;
+  overflow: hidden;
+  position: relative;
+  display: none;
+}

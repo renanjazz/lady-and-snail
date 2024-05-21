@@ -4,12 +4,12 @@ window.onload = function () {
   const restartButton = document.getElementById("restart-button");
   const ourGame = new Game();
   startButton.addEventListener("click", function () {
-    selectPlayer();
+    console.log(ourGame);
+    ourGame.selectPlayerScreen();
   });
   beginAdventure.addEventListener("click", function () {
     startGame();
   });
-
   restartButton.addEventListener("click", () => {
     window.location.reload();
   });
