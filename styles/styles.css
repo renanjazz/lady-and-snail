@@ -4,20 +4,20 @@ body {
 }
 
 #game-intro {
-    align-content: center;
-    padding: 20px 0px;
+  align-content: center;
+  padding: 20px 0px;
 }
 
-
 #game-screen {
-  display: none;
+  background-size: cover;
   align-content: center;
   padding: 20px 0px;
   overflow: hidden;
-  position: relative;
+  position: absolute;
   background-image: url("/images/background.jpg");
   background-size: cover;
   animation: slide 30s linear infinite;
+  display: none;
 }
 #game-container {
   display: flex;
