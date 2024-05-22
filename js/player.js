@@ -46,8 +46,6 @@ class Player {
         setTimeout(() => {
           this.element.classList.remove("spin");
         }, 500);
-        //this plays the honk sound on collision
-        this.honkSound.play();
         return true;
       } else {
         return false;

@@ -4,8 +4,10 @@ body {
 }
 
 #game-intro {
-  padding: 20px 0px;
+    align-content: center;
+    padding: 20px 0px;
 }
+
 
 #game-screen {
   display: none;
@@ -19,11 +21,13 @@ body {
 }
 #game-container {
   display: flex;
+  position: absolute;
   width: 100vw;
   padding: 20px 0px;
   justify-content: center;
   display: none;
-  
+  font-family: "Verdana";
+  color: #6a1414;
 }
 
 @keyframes slide {
@@ -42,23 +46,16 @@ body {
   display: none;
 }
 
-.game-intro p {
-  font-size: 18px;
-  font-family: "Verdana";
-}
-
-.logo-img {
-  width: 350px;
-}
-
 .arrows-img {
   width: 150px;
+  display: flex;
   position: absolute;
-  padding: 10px 20px;
+  right: 60px;
+  bottom: 19px;
 }
 
 body button {
-  font-size: 150%;
+  font-size: 130%;
   background-color: #870007;
   position: absolute;
   top: 70%;
@@ -70,10 +67,6 @@ body button {
   padding: 10px 20px;
   cursor: pointer;
   animation: example 3s infinite;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
 @keyframes example {
@@ -91,10 +84,30 @@ body button {
 #select-player {
   background-image: url("../images/background2.png");
   background-size: cover;
-  display: none;
   align-content: center;
   padding: 20px 0px;
   overflow: hidden;
-  position: relative;
+  position: absolute;
   display: none;
+}
+
+#select-player h4 {
+  font-family: Verdana;
+  color: rgb(255, 255, 255);
+  height: 200px;
+  width: 150px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(12, 0, 106);
+  display: inline;
+  float: inline-end;
+  position: absolute;
+  left: 120px;
+  bottom: -120px;
+}
+
+#select-player h3 {
+  font-family: Verdana;
+  color: rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
 }
