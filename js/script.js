@@ -1,13 +1,17 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
-  const beginAdventure = document.getElementById("begin-button");
+  const player1 = document.getElementById("lady-button");
+  const player2 = document.getElementById("snail-button");
   const restartButton = document.getElementById("restart-button");
   const ourGame = new Game();
   startButton.addEventListener("click", function () {
     console.log(ourGame);
     ourGame.selectPlayerScreen();
   });
-  beginAdventure.addEventListener("click", function () {
+  player1.addEventListener("click", function () {
+    startGame();
+  });
+  player2.addEventListener("click", function () {
     startGame();
   });
   restartButton.addEventListener("click", () => {
