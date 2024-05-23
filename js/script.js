@@ -3,15 +3,20 @@ window.onload = function () {
   const player1 = document.getElementById("lady-button");
   const player2 = document.getElementById("snail-button");
   const restartButton = document.getElementById("restart-button");
-  const ourGame = new Game();
+  const startScreen = document.getElementById("game-intro");
+  const selectPlayer = document.getElementById("select-player");
+  let ourGame;
+  let imgSource;
   startButton.addEventListener("click", function () {
-    console.log(ourGame);
-    ourGame.selectPlayerScreen();
+    startScreen.style.display = "none";
+    selectPlayer.style.display = "block";
   });
   player1.addEventListener("click", function () {
+    imgSource = "../images/ladyplayer.png";
     startGame();
   });
   player2.addEventListener("click", function () {
+    imgSource = "../images/snailplayer.png";
     startGame();
   });
   restartButton.addEventListener("click", () => {
@@ -40,6 +45,7 @@ window.onload = function () {
 
   function startGame() {
     console.log("start game");
+    ourGame = new Game(imgSource);
     ourGame.start();
   }
 };

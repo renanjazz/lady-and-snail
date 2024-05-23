@@ -85,6 +85,8 @@ body {
   overflow: hidden;
   position: absolute;
   display: none;
+  height: 600px;
+  width: 500px;
 }
 
 #select-player h4 {

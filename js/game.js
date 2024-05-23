@@ -1,5 +1,5 @@
 class Game {
-  constructor() {
+  constructor(imgSource) {
     this.startScreen = document.getElementById("game-intro");
     this.selectPlayer = document.getElementById("select-player");
     this.gameScreen = document.getElementById("game-screen");
@@ -11,9 +11,8 @@ class Game {
       100,
       400,
       250,
-      "./images/ladyplayer.png"
+      imgSource,
     );
-    this.player2 = new Player2(100, 100, 400, 250, "./images/snailplayer.png");
     this.height = 600;
     this.width = 500;
     this.obstacles = [new Obstacle(this.gameScreen)];
