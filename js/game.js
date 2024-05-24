@@ -5,18 +5,10 @@ class Game {
     this.gameScreen = document.getElementById("game-screen");
     this.gameEndScreen = document.getElementById("game-end");
     this.gameContainer = document.getElementById("game-container");
-    this.player = new Player(
-      this.gameScreen,
-      100,
-      100,
-      400,
-      250,
-      imgSource,
-    );
+    this.player = new Player(this.gameScreen, 100, 100, 400, 250, imgSource);
     this.height = 600;
     this.width = 500;
     this.obstacles = [new Obstacle(this.gameScreen)];
-    this.bonus = [new ObstacleGood(this.gameScreen)];
     this.points = 0;
     this.health = 5;
     this.isGameOver = false;
@@ -42,6 +34,7 @@ class Game {
       this.gameLoop();
     }, this.gameLoopFrequency);
   }
+
   gameLoop() {
     this.update();
     if (this.isGameOver) {
@@ -49,14 +42,11 @@ class Game {
       this.gameOver();
     }
   }
+
   update() {
     this.player.move();
-    const livesElement = document.getElementById("health");
-    const scoreElement = document.getElementById("points");
-
     this.obstacles.forEach((oneObstacle, oneObstacleIndex) => {
       oneObstacle.move();
-
       const thereWasACollision = this.player.didCollide(oneObstacle);
       if (thereWasACollision) {
         this.obstacles.splice(oneObstacleIndex, 1);
@@ -66,41 +56,23 @@ class Game {
         if (this.health === 0) {
           this.isGameOver = true;
         }
+        const livesElement = document.getElementById("health");
+        livesElement.innerText = this.health;
       }
-
       if (oneObstacle.top > 700) {
         this.obstacles.splice(oneObstacleIndex, 1);
         oneObstacle.element.remove();
-        this.points += 1;
+        this.points += 5;
         //always update the DOM to your new score
-
+        const scoreElement = document.getElementById("points");
+        scoreElement.innerText = this.points;
         this.obstacles.push(new Obstacle(this.gameScreen));
       }
-      this.bonus.forEach((oneBonus, oneBonusIndex) => {
-        oneBonus.moveBonus();
-
-        const bonusHit = this.player.didHitBonus(oneBonus);
-        if (bonusHit) {
-          this.bonus.splice(oneBonusIndex, 1);
-          oneBonus.element.remove();
-          this.points += 3;
-          this.bonus.push(new Bonus(this.gameScreen));
-          if (this.health === 0) {
-            this.isGameOver = true;
-          }
-        } else if (oneBonus.top > 800) {
-          this.bonus.splice(oneBonusIndex, 1);
-          oneBonus.element.remove();
-          this.bonus.push(new Bonus(this.gameScreen));
-        }
-      });
     });
-    livesElement.innerText = this.health;
-    scoreElement.innerText = this.points;
   }
+
   gameOver() {
     this.gameScreen.style.display = "none";
     this.gameEndScreen.style.display = "block";
   }
 }
-// same class of player, give different speed and lives
