@@ -19,7 +19,7 @@ body {
   padding: 20px 0px;
   overflow: hidden;
   position: absolute;
-  background-image: url("../images/background.jpg");
+  background-image: url("./images/background.jpg");
   animation: slide 30s linear infinite;
   display: none;
 }
