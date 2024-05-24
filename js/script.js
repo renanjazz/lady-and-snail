@@ -12,13 +12,13 @@ window.onload = function () {
     selectPlayer.style.display = "block";
   });
   player1.addEventListener("click", function () {
-    imgSource = "/images/ladyplayer.png";
+    imgSource = "images/ladyplayer.png";
     console.log("clickable");
     
     startGame();
   });
   player2.addEventListener("click", function () {
-    imgSource = "/images/snailplayer.png";
+    imgSource = "images/snailplayer.png";
     startGame();
   });
   restartButton.addEventListener("click", () => {
