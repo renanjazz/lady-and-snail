@@ -85,7 +85,7 @@ body {
 }
 
 #select-player {
-  background-image: url("../images/background2.png");
+  background-image: url("/images/background2.png");
   background-size: cover;
   align-content: center;
   padding: 20px 0px;
@@ -99,7 +99,7 @@ body {
 #select-player h4 {
   font-family: Verdana;
   color: rgb(255, 255, 255);
-  background-color: #600000;  
+  background-color: #600000;
   height: 200px;
   width: 150px;
   -webkit-text-stroke-width: 0.5px;
