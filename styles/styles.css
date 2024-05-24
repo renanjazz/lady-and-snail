@@ -26,6 +26,10 @@ body {
 #game-container {
   font-family: "Verdana";
   color: #6a1414;
+  background-color: orange;
+  display: none;
+  position: absolute;
+  font-size: 120%;
 }
 
 @keyframes slide {
@@ -95,15 +99,17 @@ body {
 #select-player h4 {
   font-family: Verdana;
   color: rgb(255, 255, 255);
+  background-color: #600000;  
   height: 200px;
   width: 150px;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: rgb(12, 0, 106);
-  display: inline;
+  display: flex;
   float: inline-end;
   position: absolute;
   left: 120px;
   bottom: -120px;
+  opacity: 0.7;
 }
 
 #select-player h3 {
@@ -128,14 +134,14 @@ body {
   padding: 10px 20px;
 }
 
-#lady-button {
+#lady-btn {
   font-size: 130%;
   background-color: #870007;
   position: absolute;
   top: 70%;
   left: 30%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 100;
   color: #fff;
   border: none;
   padding: 10px 20px;

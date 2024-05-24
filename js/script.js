@@ -1,6 +1,6 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
-  const player1 = document.getElementById("lady-button");
+  const player1 = document.getElementById("lady-btn");
   const player2 = document.getElementById("snail-button");
   const restartButton = document.getElementById("restart-button");
   const startScreen = document.getElementById("game-intro");
@@ -12,11 +12,13 @@ window.onload = function () {
     selectPlayer.style.display = "block";
   });
   player1.addEventListener("click", function () {
-    imgSource = "../images/ladyplayer.png";
+    imgSource = "./images/ladyplayer.png";
+    console.log("clickable");
+    
     startGame();
   });
   player2.addEventListener("click", function () {
-    imgSource = "../images/snailplayer.png";
+    imgSource = "./images/snailplayer.png";
     startGame();
   });
   restartButton.addEventListener("click", () => {

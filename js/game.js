@@ -9,11 +9,14 @@ class Game {
     this.height = 600;
     this.width = 500;
     this.obstacles = [new Obstacle(this.gameScreen)];
+    this.bonus = [new Bonus(this.gameScreen)];
     this.points = 0;
-    this.health = 5;
+    this.health = 2;
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
+    this.themeSound = new Audio("/tetramaster.wav");
+    this.themeSound.volume = 0.08;
   }
 
   selectPlayerScreen() {
@@ -30,6 +33,7 @@ class Game {
     this.gameScreen.style.display = "block";
     this.gameContainer.style.display = "block";
     this.selectPlayer.style.display = "none";
+    this.themeSound.play();
     this.gameIntervalId = setInterval(() => {
       this.gameLoop();
     }, this.gameLoopFrequency);
@@ -45,6 +49,10 @@ class Game {
 
   update() {
     this.player.move();
+
+    const livesElement = document.getElementById("health");
+    const scoreElement = document.getElementById("points");
+
     this.obstacles.forEach((oneObstacle, oneObstacleIndex) => {
       oneObstacle.move();
       const thereWasACollision = this.player.didCollide(oneObstacle);
@@ -56,19 +64,34 @@ class Game {
         if (this.health === 0) {
           this.isGameOver = true;
         }
-        const livesElement = document.getElementById("health");
-        livesElement.innerText = this.health;
       }
       if (oneObstacle.top > 700) {
         this.obstacles.splice(oneObstacleIndex, 1);
         oneObstacle.element.remove();
         this.points += 5;
-        //always update the DOM to your new score
-        const scoreElement = document.getElementById("points");
-        scoreElement.innerText = this.points;
         this.obstacles.push(new Obstacle(this.gameScreen));
       }
     });
+    this.bonus.forEach((oneBonus, oneBonusIndex) => {
+      oneBonus.move();
+
+      const bonusHit = this.player.didCollide(oneBonus);
+      if (bonusHit) {
+        this.bonus.splice(oneBonusIndex, 1);
+        oneBonus.element.remove();
+        this.health += 2;
+        this.bonus.push(new Bonus(this.gameScreen));
+        if (this.health === 0) {
+          this.isGameOver = true;
+        }
+      } else if (oneBonus.top > 700) {
+        this.bonus.splice(oneBonusIndex, 1);
+        oneBonus.element.remove();
+        this.bonus.push(new Bonus(this.gameScreen));
+      }
+    });
+    livesElement.innerText = this.health;
+    scoreElement.innerText = this.points;
   }
 
   gameOver() {

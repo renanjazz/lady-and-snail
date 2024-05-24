@@ -1,14 +1,14 @@
-class ObstacleGood {
+class Bonus {
     constructor(gameScreen) {
       this.gameScreen = gameScreen;
       this.positionsArr = [85, 300];
       this.randomIndex = Math.floor(Math.random() * this.positionsArr.length);
       this.left = this.positionsArr[this.randomIndex];
       this.top = -250;
-      this.width = 60;
-      this.height = 80;
+      this.width = 80;
+      this.height = 100;
       this.element = document.createElement("img");
-      this.element.src = "./images/flower.png";
+      this.element.src = "/images/flower.png";
       this.element.style.position = "absolute";
       this.element.style.top = `${this.top}px`;
       this.element.style.left = `${this.left}px`;
@@ -17,7 +17,7 @@ class ObstacleGood {
       this.gameScreen.appendChild(this.element);
     }
     move() {
-      this.top += 7;
+      this.top += 2;
       this.updatePosition();
     }
     updatePosition() {
