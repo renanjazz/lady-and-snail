@@ -10,7 +10,7 @@ body {
   width: 500px;
   padding: 20px 0px;
   position: relative;
-  background-image: url("/images/background2.png");
+  background-image: url("../images/background2.png");
 }
 
 #game-screen {
@@ -19,7 +19,7 @@ body {
   padding: 20px 0px;
   overflow: hidden;
   position: absolute;
-  background-image: url("/images/background.jpg");
+  background-image: url("../images/background.jpg");
   animation: slide 30s linear infinite;
   display: none;
 }
@@ -85,7 +85,7 @@ body {
 }
 
 #select-player {
-  background-image: url("/images/background2.png");
+  background-image: url("../images/background2.png");
   background-size: cover;
   align-content: center;
   padding: 20px 0px;
