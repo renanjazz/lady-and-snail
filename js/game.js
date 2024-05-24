@@ -15,7 +15,7 @@ class Game {
     this.isGameOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = 1000 / 60;
-    this.themeSound = new Audio("/tetramaster.wav");
+    this.themeSound = new Audio("./tetramaster.wav");
     this.themeSound.volume = 0.08;
   }
 
